@@ -1,17 +1,18 @@
-export function sum(a, b) {
-    return a + b;
-  }
-  
-  export function sub(a, b) {
-    return a - b;
-  }
-  
-  export function mul(a, b) {
-    return a * b;
-  }
-  
-  export function div(a, b) {
-    if (b === 0) throw new Error("Cannot divide by zero");
-    return a / b;
-  }
-  
+function sum(a, b) {
+  return a + b;
+}
+
+function sub(a, b) {
+  return a - b;
+}
+
+function mul(a, b) {
+  return a * b;
+}
+
+function div(a, b) {
+  if (b === 0) throw new Error("Cannot divide by zero");
+  return a / b;
+}
+
+module.exports = { sum, sub, mul, div };
