@@ -1,4 +1,4 @@
-const { sum, sub, mul, div } = require('./math');
+import { sum, sub, mul, div } from './math.js';
 
 describe('Funzioni matematiche', () => {
   test('sum: somma 2 + 3 = 5', () => {
