@@ -1,7 +1,7 @@
-import { createInterface } from 'readline';
-import { sum, sub, mul, div } from './math.js';
+const readline = require('readline');
+const { sum, sub, mul, div } = require('./math.js');
 
-const rl = createInterface({
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
@@ -53,21 +53,25 @@ function chiediNumero2(operazione, num1) {
 
 function calcolaRisultato(operazione, num1, num2) {
     let risultato;
-    switch (operazione) {
-        case 'somma':
-            risultato = sum(num1, num2);
-            break;
-        case 'sottrai':
-            risultato = sub(num1, num2);
-            break;
-        case 'moltiplica':
-            risultato = mul(num1, num2);
-            break;
-        case 'dividi':
-            risultato = div(num1, num2);
-            break;
+    try {
+        switch (operazione) {
+            case 'somma':
+                risultato = sum(num1, num2);
+                break;
+            case 'sottrai':
+                risultato = sub(num1, num2);
+                break;
+            case 'moltiplica':
+                risultato = mul(num1, num2);
+                break;
+            case 'dividi':
+                risultato = div(num1, num2);
+                break;
+        }
+        console.log(`Risultato: ${risultato}`);
+    } catch (error) {
+        console.log(`Errore: ${error.message}`);
     }
-    console.log(`Risultato: ${risultato}`);
     chiediNuovaOperazione();
 }
 
