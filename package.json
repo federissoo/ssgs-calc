@@ -1,15 +1,30 @@
 {
   "name": "ssgs-calc",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Calcolatrice SSGS",
+  "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "calculator",
+    "testing",
+    "jest"
+  ],
+  "author": "Il tuo nome",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/ssgs-calc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/ssgs-calc/issues"
+  },
+  "homepage": "https://github.com/username/ssgs-calc#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
     "jest": "^29.7.0"
   }
 }
