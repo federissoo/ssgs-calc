@@ -1,26 +1,40 @@
 name: do-tests
 
-on: push  # Trigger: esegui il workflow a ogni push
+on:
+  push:
+    branches:
+      - main         
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Sistema operativo per il runner
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up node  
-        uses: actions/setup-node@v3
+      - name: Set up Node.js with cache
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'   
 
       - name: Install dependencies
-        run: npm install  
+        run: npm ci  
 
       - name: Run tests
-        run: npm test -- --coverage 
+        run: npm test -- --coverage
+
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage HTML as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/  
