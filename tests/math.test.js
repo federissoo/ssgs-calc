@@ -1,4 +1,4 @@
-const { sum, sub, mul, div } = require('./math');
+const { sum, sub, mul, div } = require('../src/math');
 
 describe('Sum Tests', () => {
   test('sum 2 + 2', () => {
